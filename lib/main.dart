@@ -4,9 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
 
 void main() => runApp(MaterialApp(
-  home: man(),
+  home: About(),
 ));
-class man extends StatelessWidget {
+class About extends StatefulWidget {
+  @override
+  _AboutState createState() => _AboutState();
+}
+
+class _AboutState extends State<About> {
+
+  int level = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +24,12 @@ class man extends StatelessWidget {
         backgroundColor: Colors.lightBlueAccent,
         elevation: 0.0,
       ),
+      floatingActionButton: FloatingActionButton( onPressed: () {
+        setState(() {
+          level +=1;
+        });
+      },
+      child: Icon(Icons.add),),
       body: Padding(padding: EdgeInsets.fromLTRB(30.0,10.0,30.0,0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +85,7 @@ class man extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              'Work Life Experience',
+              'Developer Life Level',
               style: TextStyle(
                 color: Colors.black,
                 letterSpacing: 1.0,
@@ -81,7 +95,7 @@ class man extends StatelessWidget {
             ),
             SizedBox(height: 10.0),
             Text(
-              'I was in an Internship',
+              '$level',
               style: TextStyle(
                 color: Colors.grey[400],
                 letterSpacing: 1.0,
@@ -116,5 +130,6 @@ class man extends StatelessWidget {
     );
   }
 }
+
 
 
